@@ -1,6 +1,9 @@
 FROM microsoft/aspnetcore-build
-COPY TodoApp/* /app/
-WORKDIR /app
+COPY . /app
+WORKDIR /app/TodoApp.Test
+RUN ["dotnet", "restore"]
+RUN ["dotnet", "xunit"]
+WORKDIR /app/TodoApp
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
 EXPOSE 80/tcp
