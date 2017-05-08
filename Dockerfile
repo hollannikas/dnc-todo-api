@@ -1,5 +1,5 @@
 FROM microsoft/aspnetcore-build
-COPY . /app
+COPY TodoApp/* /app/
 WORKDIR /app
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
